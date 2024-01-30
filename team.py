@@ -42,4 +42,6 @@ def update_student(grade, class_num, student_num, name):
 # 학생 삭제
 def delete_student(grade, class_num, student_num):
     global students
+    length = len(students)
     students = [student for student in students if student.grade != grade or student.class_num != class_num or student.student_num != student_num]
+    return length != len(students)
