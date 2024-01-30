@@ -39,6 +39,7 @@ class LeapYearTest(unittest.TestCase):
 
         # 학생 이름으로 조회
         student = team.get_student_by_name("I am one")
+        self.assertIsNotNone(student)
         self.assertEqual(student.grade,1)
         self.assertEqual(student.class_num,1)
         self.assertEqual(student.student_num,1)
@@ -50,7 +51,7 @@ class LeapYearTest(unittest.TestCase):
 
         # 학생 삭제
         self.assertTrue(team.delete_student(1, 1, 1))
-        self.assertFalse(team.get_student(1,1,1))
+        self.assertIsNone(team.get_student(1,1,1))
 
 
 
