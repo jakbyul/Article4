@@ -10,8 +10,12 @@ students = []
 
 # 학생 등록
 def register_student(grade, class_num, student_num, name):
-    student = Student(grade, class_num, student_num, name)
-    students.append(student)
+    student = get_student(grade, class_num, student_num)
+    if not student:
+        student = Student(grade, class_num, student_num, name)
+        students.append(student)
+        return True
+    print("해당 학번을 사용중인 학생이 있습니다.")
 
 # 학생 조회
 def get_student(grade, class_num, student_num):
